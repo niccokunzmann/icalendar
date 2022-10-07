@@ -34,7 +34,6 @@ class DataSource:
         return repr(self.__dict__)
 
 HERE = os.path.dirname(__file__)
-CALENDARS_FOLDER = os.path.join(HERE, 'calendars')
 TIMEZONES_FOLDER = os.path.join(HERE, 'timezones')
 EVENTS_FOLDER = os.path.join(HERE, 'events')
 CALENDARS_FOLDER = os.path.join(HERE, 'calendars')
