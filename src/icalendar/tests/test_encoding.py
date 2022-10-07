@@ -89,6 +89,24 @@ class TestEncoding(unittest.TestCase):
             + b'\xc3\xa4\xc3\xb6\xc3\xbc\xc3\x9f\xc3\x84\xc3\x96\xc3\x9c\r\n'
             + b'END:VEVENT\r\nEND:VCALENDAR\r\n'
         )
+        
+@pytest.mark.parametrize('event_name', [
+    # Non-unicode characters in summary
+    'issue_64_event_with_non_unicode_summary',
+    # Unicode characters in summary
+    'issue_64_event_with_unicode_summary',
+    # chokes on umlauts in ORGANIZER
+    'issue_101_icalendar_chokes_on_umlauts_in_organizer'
+])
+def test_events_unicoded(events, event_name):
+    '''Issue #64 - Event.to_ical() fails for unicode strings
+       Issue #101 - icalendar is choking on umlauts in ORGANIZER
+
+    https://github.com/collective/icalendar/issues/64
+    https://github.com/collective/icalendar/issues/101
+    '''
+    event = getattr(events, event_name)
+    assert event.to_ical() == event.raw_ics
 
 def test_parses_event_with_non_ascii_tzid_issue_237(calendars, timezone):
     """Issue #237 - Fail to parse timezone with non-ascii TZID
@@ -110,4 +128,3 @@ def test_parses_timezone_with_non_ascii_tzname_issue_273(timezones, timezone_nam
     see https://github.com/collective/icalendar/issues/237
     """
     assert timezones.issue_237_brazilia_standard.walk(timezone_name)[0]['TZNAME'] == f'Brasília {timezone_name}'
-
