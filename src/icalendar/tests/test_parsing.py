@@ -15,7 +15,10 @@ from icalendar.parser import Contentline, Parameters
     # Nonstandard component inside other components, also has properties
     'issue_178_custom_component_inside_other',
     # Nonstandard component is able to contain other components
-    'issue_178_custom_component_contains_other'])
+    'issue_178_custom_component_contains_other',
+    # https://github.com/collective/icalendar/issues/314
+    'issue_314_VTIMEZONE_subcomponent_must_use_datetime',
+])
 def test_calendar_to_ical_is_inverse_of_from_ical(calendars, calendar_name):
     calendar = getattr(calendars, calendar_name)
     assert calendar.to_ical() == calendar.raw_ics
