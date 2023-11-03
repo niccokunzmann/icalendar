@@ -111,8 +111,8 @@ Try it out:
     Python 3.9.5 (default, Nov 23 2021, 15:27:38)
     Type "help", "copyright", "credits" or "license" for more information.
     >>> import icalendar
-    >>> icalendar.__version__
-    '5.0.10'
+    >>> icalendar.__version__ # doctest: +SKIP
+    '5.0.0'
 
 Building the documentation locally
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

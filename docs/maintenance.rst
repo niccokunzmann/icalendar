@@ -57,10 +57,7 @@ However, only people with ``PyPI environment access for GitHub Actions`` can app
 
 1. Check that the ``CHANGES.rst`` is up to date with the `latest merged pull requests <https://github.com/collective/icalendar/pulls?q=is%3Apr+is%3Amerged>`__
    and the version you want to release is correctly named.
-2. Change the ``__version__`` variable in
-
-   - the ``src/icalendar/__init__.py`` file and 
-   - in the ``docs/install.rst`` file (look for ``icalendar.__version__``)
+2. Change the ``__version__`` variable in the ``src/icalendar/__init__.py`` file.
 3. Create a commit on the ``release`` branch (or equivalent) to release this version.
 
    .. code-block:: bash
@@ -68,7 +65,7 @@ However, only people with ``PyPI environment access for GitHub Actions`` can app
        git checkout master
        git pull
        git checkout -b release master
-       git add CHANGES.rst src/icalendar/__init__.py docs/install.rst
+       git add CHANGES.rst src/icalendar/__init__.py
        git commit -m"version 5.0.0"
 
 4. Push the commit and `create a pull request <https://github.com/collective/icalendar/compare?expand=1>`__
@@ -111,21 +108,21 @@ However, only people with ``PyPI environment access for GitHub Actions`` can app
 
        5.0.2 (unreleased)
        ------------------
-       
+
        Minor changes:
-       
+
        - ...
-       
+
        Breaking changes:
-       
+
        - ...
-       
+
        New features:
-       
+
        - ...
-       
+
        Bug fixes:
-       
+
        - ...
 
 11. Push the new CHANGELOG so it is used for future changes.
@@ -136,7 +133,7 @@ However, only people with ``PyPI environment access for GitHub Actions`` can app
        git pull
        git add CHANGES.rst
        git commit -m"Add new CHANGELOG section for future release
-       
+
        See https://icalendar.readthedocs.io/en/latest/maintenance.html#new-releases"
        git push upstream master # could be origin or whatever reference
 
@@ -147,7 +144,3 @@ This section contains useful links for maintainers and contributors:
 
 - `Future of icalendar, looking for maintainer #360 <https://github.com/collective/icalendar/discussions/360>`__
 - `Comment on the Plone tests running with icalendar <https://github.com/collective/icalendar/pull/447#issuecomment-1277643634>`__
-
-
-
-
