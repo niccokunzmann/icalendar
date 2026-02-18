@@ -17,7 +17,6 @@ from icalendar.cal import (
     TimezoneStandard,
     Todo,
 )
-import time
 from icalendar.enums import (
     BUSYTYPE,
     CLASS,
