@@ -175,6 +175,6 @@ __all__ = [
     "vUri",
     "vWeekday",
     "vXmlReference",
-    "version",
     "version_tuple",
+    "version",
 ]
