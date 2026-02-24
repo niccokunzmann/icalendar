@@ -24,7 +24,7 @@ jobs:
       - name: Fail if we detect any changes on the file system
         run: |
           git status
-          if ! git diff --exit-code; then
+          if ! git diff --exit-code --color=always; then
             echo "$MESSAGE"
             exit 1;
           fi
