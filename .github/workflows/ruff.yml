@@ -24,7 +24,7 @@ jobs:
         run: ruff format .
       - name: Fail if we detect any changes on the file system
         run: |
-          git diff | delta
+          git diff | delta --light
           if ! git diff --exit-code --quiet; then
             echo "$MESSAGE"
             exit 1;
