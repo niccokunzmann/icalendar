@@ -19,15 +19,18 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install . --group formatting
+          sudo apt install -y git-delta
       - name: Run the ruff formatter to change files
         run: ruff format .
       - name: Fail if we detect any changes on the file system
         run: |
-          git status
-          if ! git diff --exit-code --color=always; then
+          git diff | delta
+          if ! git diff --exit-code --quiet; then
             echo "$MESSAGE"
             exit 1;
           fi
+        env:
+          FORCE_COLOR: '1'
       - name: Run ruff checks on the files
         run: |
           if ! ruff check; then
